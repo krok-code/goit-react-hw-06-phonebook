@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import shortid from 'shortid';
 import initialContacts from './data/contacts.json';
-import useLocaleStorage from './hooks/useLocaleStorage';
+// import useLocaleStorage from './hooks/useLocaleStorage';
 import Layout from './Layout/Layout';
 import GlobalTitle from './Layout/Title';
 import FormList from './FormList/FormList';
@@ -12,8 +12,16 @@ import Filter from './Filter/Filter';
 import { notifyOptions } from './notifyOptions/notifyOptions';
 
 function App() {
-  const [contacts, setContacts] = useLocaleStorage('contacts', initialContacts);
+  // const [contacts, setContacts] = useLocaleStorage('contacts', initialContacts);
   const [filter, setFilter] = useState('');
+
+  const [contacts, setContacts] = useState(
+    JSON.parse(localStorage.getItem('contacts')) ?? initialContacts
+  );
+
+  useEffect(() => {
+    localStorage.setItem('contacts', JSON.stringify(contacts));
+  }, [contacts]);
 
   const addContact = ({ name, number }) => {
     const normalizedName = name.toLowerCase();
