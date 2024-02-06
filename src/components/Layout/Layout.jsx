@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from './Layout.styled';
+import { Container } from './Layout.styled.css';
 import PropTypes from 'prop-types';
 
 const Layout = ({ children }) => {
