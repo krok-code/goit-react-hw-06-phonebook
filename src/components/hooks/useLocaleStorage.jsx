@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export default function useLocaleStorage(key, defaultValue) {
+const useLocaleStorage = (key, defaultValue) => {
   const [contact, setState] = useState(() => {
     return JSON.parse(window.localStorage.getItem(key) ?? defaultValue);
   });
@@ -9,4 +9,6 @@ export default function useLocaleStorage(key, defaultValue) {
     window.localStorage.setItem(key, JSON.stringify(contact));
   }, [key, contact]);
   return [contact, setState];
-}
+};
+
+export default useLocaleStorage;
