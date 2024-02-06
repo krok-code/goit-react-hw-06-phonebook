@@ -1,6 +1,6 @@
 import React from 'react';
 import { ListWrap, List } from './ContactList.styled';
-import { Button } from 'components/FormList/FormList.styled';
+import { Button } from '../FormList/FormList.styled';
 import { UserDeleteOutlined } from '@ant-design/icons';
 // import PropTypes from 'prop-types';
 
