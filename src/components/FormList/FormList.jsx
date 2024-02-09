@@ -4,8 +4,8 @@ import { Form, Label, Input, Button, Span } from './FormList.styled';
 import { toast } from 'react-toastify';
 import { notifyOptions } from '../notifyOptions/notifyOptions';
 import { useSelector, useDispatch } from 'react-redux';
-import { getVisibleContacts } from 'redux/selectors';
-import { addContact } from 'redux/contactsSlice';
+import { getVisibleContacts } from '../../redux/selectors';
+import { addContact } from '../../redux/contactsSlice';
 
 const FormList = () => {
   const [name, setName] = useState('');
